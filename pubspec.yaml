@@ -1,0 +1,60 @@
+name: locally_app
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^2.1.1
+  http: ^0.13.5
+  shared_preferences: ^2.0.15
+  sizer: ^2.0.15
+  flutter_svg: ^1.1.6
+  auto_size_text: ^3.0.0
+  dotted_line: ^3.1.0
+  percent_indicator: ^4.2.2
+  page_transition: ^2.0.9
+  intl: ^0.18.0
+  dropdown_search: ^2.0.1
+  dartz: ^0.10.1
+  external_app_launcher: ^3.1.0
+  flutter_spinkit: ^5.1.0
+  equatable: ^2.0.5
+  path_provider: ^2.0.13
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  # fonts:
+  #   - family: Grold-Bold
+  #     fonts:
+  #       - asset: assets/fonts/Grold-Bold.ttf
+  #   - family: Grold-Light
+  #     fonts:
+  #       - asset: assets/fonts/Grold-Light.otf
+  #   - family: Roboto-Light
+  #     fonts:
+  #       - asset: assets/fonts/Roboto-Medium.ttf
+
