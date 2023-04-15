@@ -1,34 +1,24 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:locally_app/features/login/provider/login_provider.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/routes/app_navigation_routes.dart';
-import 'package:locally_app/utils/app_constant.dart';
-import 'package:locally_app/utils/app_labels.dart';
-import 'package:locally_app/utils/helper_functions.dart';
 import 'package:locally_app/widgets/appBar/custom_appbar.dart';
 import 'package:locally_app/widgets/button/custom_button.dart';
-import 'package:locally_app/widgets/textFormField/custom_text_form_field.dart';
 import 'package:locally_app/widgets/textFormField/text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
-class LoginScreenUI extends ConsumerWidget {
-  const LoginScreenUI({super.key});
+class OTPScreen extends StatelessWidget {
+  const OTPScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    LoginProvider loginRead = ref.read(loginProvider);
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar:MyAppBar(title: "", onBackPressed: (){
-        print("back pressed called");
-      }),
+      appBar: MyAppBar(title: "", onBackPressed: () {}),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Form(
-          key: loginRead.loginFormKey,
+          // key: loginRead.loginFormKey,
           child: Container(
             height: MediaQuery.of(context).size.height - 100,
             margin: EdgeInsets.symmetric(horizontal: 5.w),
@@ -38,32 +28,90 @@ class LoginScreenUI extends ConsumerWidget {
               children: [
                 SizedBox(height: 5.0.h),
                 Text(
-                  "Create Account",
-                  style: TextStyle(fontSize: 20.sp),
+                  "Verify Your Number",
+                  style:
+                      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: 1.0.h),
+                RichText(
+                  text: const TextSpan(
+                    style: TextStyle(
+                      color: Color(0xFF6B829D),
+                    ),
+                    children: [
+                      TextSpan(text: 'Code sent you to '),
+                      TextSpan(
+                          text: '03337699706 ',
+                          style: TextStyle(color: Color(0xFF064769))),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 5.0.h),
-                const TextFormFieldCustom(
-                    labelText: "Enter Name", icon: Icons.person),
-                SizedBox(
-                  height: 3.0.h,
-                ),
-                const TextFormFieldCustom(
-                    labelText: "Email (Optional)", icon: Icons.person),
-                SizedBox(
-                  height: 7.0.h,
-                ),
-                CustomButton(
-                  title: "Submit",
-                  color: const Color(0xFF064769),
-                  fontColor: const Color(0xFFFFFFFF),
-                  fontSize: 18,
-                  showIcon: false,
-                  fontWeight: FontWeight.w300,
-                  minSize: Size(72.w, 8.h),
-                  onPressed: () {
-                    AppNavigation.navigateTo(AppNavRoutes.numberRoute);
+                OtpTextField(
+                  numberOfFields: 6,
+                  filled: true,
+                  fillColor: const Color(0xFFEDF4F8),
+
+                  //set to true to show as box or false to show as dash
+                  showFieldAsBox: true,
+                  //runs when a code is typed in
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
                   },
+                  onSubmit: (String verificationCode) {
+                    AppNavigation.navigateTo(AppNavRoutes.locationRoute);
+                    // showDialog(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: Text("Verification Code"),
+                    //         content: Text('Code entered is $verificationCode'),
+                    //       );
+                    //     });
+                  }, // end onSubmit
                 ),
+                SizedBox(
+                  height: 5.0.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Didn't receive code?",
+                        style: TextStyle(color: Color(0xFF6B829D)),
+                      ),
+                      SizedBox(
+                        height: 0.5.h,
+                      ),
+                      const Text("Please wait 00:28",
+                          style: TextStyle(color: Color(0xFF064769))),
+                    ],
+                  ),
+                )
+                // const TextFormFieldCustom(
+                //     labelText: "Enter Name", icon: Icons.person),
+                // SizedBox(
+                //   height: 3.0.h,
+                // ),
+                // const TextFormFieldCustom(
+                //     labelText: "Email (Optional)", icon: Icons.person),
+                // SizedBox(
+                //   height: 7.0.h,
+                // ),
+                // CustomButton(
+                //   title: "Submit",
+                //   color: const Color(0xFF064769),
+                //   fontColor: const Color(0xFFFFFFFF),
+                //   fontSize: 18,
+                //   showIcon: false,
+                //   fontWeight: FontWeight.w300,
+                //   minSize: Size(72.w, 8.h),
+                //   onPressed: () {
+                //     print("clicked");
+                //   },
+                // )
               ],
             ),
             // child: Column(
