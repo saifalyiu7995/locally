@@ -66,7 +66,7 @@ class LandingScreen extends StatelessWidget {
                     fontSize: 18,
                     showIcon: false,
                     fontWeight: FontWeight.w300,
-                    minSize: Size(72.w, 8.h),
+                    minSize: Size(72.w, 6.h),
                     onPressed: () {
                       AppNavigation.navigateTo(AppNavRoutes.loginRoute);
                     },
@@ -105,7 +105,7 @@ class LandingScreen extends StatelessWidget {
                     fontSize: 18,
                     showIcon: false,
                     fontWeight: FontWeight.w300,
-                    minSize: Size(72.w, 8.h),
+                    minSize: Size(72.w, 6.h),
                     onPressed: () {
                       print("clicked");
                     },
@@ -120,7 +120,7 @@ class LandingScreen extends StatelessWidget {
                     fontSize: 18,
                     showIcon: false,
                     fontWeight: FontWeight.w300,
-                    minSize: Size(72.w, 8.h),
+                    minSize: Size(72.w, 6.h),
                     onPressed: () {
                       print("clicked");
                     },
@@ -138,7 +138,7 @@ class LandingScreen extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                     // showOutline: true,
                     // outlineWidth: 10,
-                    minSize: Size(72.w, 8.h),
+                    minSize: Size(72.w, 6.h),
                     onPressed: () {
                       print("clicked");
                     },
@@ -153,6 +153,7 @@ class LandingScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         RichText(
+                          textAlign: TextAlign.center,
                           text: TextSpan(
                             style: TextStyle(
                               color: const Color(0xFF041421),
@@ -160,32 +161,51 @@ class LandingScreen extends StatelessWidget {
                             ),
                             children: const [
                               TextSpan(
-                                  text: 'By signing up you are agree to  '),
+                                text: 'By signing up you are agree to the',
+                                style: TextStyle(
+                                  color: Color(0xFF6B829D),
+                                ),
+                              ),
                               TextSpan(
-                                  text: 'the Terms of ',
-                                  style: TextStyle(color: Color(0xFFA52827))),
+                                text: ' Terms of Service',
+                                style: TextStyle(
+                                    color: Color(0xFF041421),
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              TextSpan(
+                                text: ' and ',
+                                style: TextStyle(
+                                  color: Color(0xFF6B829D),
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'Privacy Policy',
+                                style: TextStyle(
+                                    color: Color(0xFF041421),
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ],
                           ),
                         ),
                         // and Privacy Policy
-                        RichText(
-                          text: TextSpan(
-                            style: TextStyle(
-                              color: const Color(0xFFA52827),
-                              fontSize: 12.sp,
-                            ),
-                            children: const [
-                              TextSpan(text: 'Service  '),
-                              TextSpan(
-                                text: 'and ',
-                                style: TextStyle(
-                                  color: Color(0xFF041421),
-                                ),
-                              ),
-                              TextSpan(text: 'Privacy Policy'),
-                            ],
-                          ),
-                        ),
+                        // RichText(
+                        //   text: TextSpan(
+                        //     style: TextStyle(
+                        //       color: const Color(0xFFA52827),
+                        //       fontSize: 12.sp,
+                        //     ),
+                        //     children: const [
+                        //       TextSpan(text: 'Service  '),
+                        //       TextSpan(
+                        //         text: 'and ',
+                        //         style: TextStyle(
+                        //           color: Color(0xFF041421),
+                        //         ),
+                        //       ),
+                        //       TextSpan(text: 'Privacy Policy'),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -194,7 +214,6 @@ class LandingScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
             ),
           ),
         ),

@@ -5,7 +5,6 @@ import 'package:locally_app/routes/app_navigation_routes.dart';
 import 'package:locally_app/widgets/appBar/custom_appbar.dart';
 import 'package:locally_app/widgets/button/custom_button.dart';
 import 'package:locally_app/widgets/headingText/headingtext_widget.dart';
-import 'package:locally_app/widgets/textFormField/text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class NumberScreen extends StatelessWidget {
@@ -14,9 +13,11 @@ class NumberScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:MyAppBar(title: "", onBackPressed: (){
-        print("back pressed called");
-      }),
+      appBar: MyAppBar(
+          title: "",
+          onBackPressed: () {
+            print("back pressed called");
+          }),
       body: SingleChildScrollView(
         child: Form(
           // key: loginRead.loginFormKey,
@@ -32,21 +33,24 @@ class NumberScreen extends StatelessWidget {
                 //   "Create Account",
                 //   style: TextStyle(fontSize: 20.sp),
                 // ),
-              const HeadingText(textValue: "Welcome"),
+                const HeadingText(textValue: "Welcome"),
                 SizedBox(height: 3.0.h),
-                const Text("Enter your phone number here" , style: TextStyle(color: Color(0xFF6B829D)),),
+                const Text(
+                  "Enter your phone number here",
+                  style: TextStyle(color: Color(0xFF6B829D)),
+                ),
                 SizedBox(
                   height: 3.0.h,
                 ),
                 IntlPhoneField(
-                  decoration:  InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Phone Number',
                     filled: true,
                     fillColor: const Color(0xFFEDF4F8),
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(5),
-                  ),
+                    ),
                   ),
                   onChanged: (phone) {
                     print(phone.completeNumber);
@@ -61,10 +65,13 @@ class NumberScreen extends StatelessWidget {
                   children: [
                     RichText(
                       text: const TextSpan(
-                        style: TextStyle( color: Color(0xFF6B829D)),
+                        style: TextStyle(color: Color(0xFF6B829D)),
                         children: [
-                          TextSpan(text: 'By signing up you are agreed to the '),
-                          TextSpan(text: 'Terms of ', style: TextStyle(color: Color(0xFF064769))),
+                          TextSpan(
+                              text: 'By signing up you are agreed to the '),
+                          TextSpan(
+                              text: 'Terms of ',
+                              style: TextStyle(color: Color(0xFF064769))),
                         ],
                       ),
                     )
@@ -75,11 +82,15 @@ class NumberScreen extends StatelessWidget {
                   children: [
                     RichText(
                       text: const TextSpan(
-                        style: TextStyle(color:Color(0xFF6B829D)),
+                        style: TextStyle(color: Color(0xFF6B829D)),
                         children: [
-                          TextSpan(text: 'Service ' , style: TextStyle(color: Color(0xFF064769))),
+                          TextSpan(
+                              text: 'Service ',
+                              style: TextStyle(color: Color(0xFF064769))),
                           TextSpan(text: 'and '),
-                          TextSpan(text: 'Privacy Policy' , style: TextStyle(color: Color(0xFF064769))),
+                          TextSpan(
+                              text: 'Privacy Policy',
+                              style: TextStyle(color: Color(0xFF064769))),
                         ],
                       ),
                     ),
@@ -93,7 +104,7 @@ class NumberScreen extends StatelessWidget {
                   fontSize: 18,
                   showIcon: false,
                   fontWeight: FontWeight.w300,
-                  minSize: Size(72.w, 8.h),
+                  minSize: Size(72.w, 6.h),
                   onPressed: () {
                     AppNavigation.navigateTo(AppNavRoutes.otpRoute);
                   },

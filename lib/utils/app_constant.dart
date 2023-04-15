@@ -41,9 +41,9 @@ class AppConstant {
 
   //NavBar
   static const String bottomBarHome = 'Home';
-  static const String bottomBarProfile = 'My Profile';
-  static const String bottomBarRequest = 'Travel Request';
-  static const String bottomBarNewRequest = 'My Approvals';
+  static const String bottomBarAlert = 'Alerts';
+  static const String bottomBarOrders = 'Orders';
+  static const String bottomBarMore = 'More';
   static const String bottomBarMenu = 'Menu';
   static const String bottomBarIsosCall = "ISOS";
 
