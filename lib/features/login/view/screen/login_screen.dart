@@ -22,9 +22,11 @@ class LoginScreenUI extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     LoginProvider loginRead = ref.read(loginProvider);
     return Scaffold(
-      appBar:MyAppBar(title: "", onBackPressed: (){
-        print("back pressed called");
-      }),
+      appBar: MyAppBar(
+          title: "",
+          onBackPressed: () {
+            print("back pressed called");
+          }),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Form(
@@ -59,7 +61,7 @@ class LoginScreenUI extends ConsumerWidget {
                   fontSize: 18,
                   showIcon: false,
                   fontWeight: FontWeight.w300,
-                  minSize: Size(72.w, 8.h),
+                  minSize: Size(72.w, 6.h),
                   onPressed: () {
                     AppNavigation.navigateTo(AppNavRoutes.numberRoute);
                   },

@@ -1,11 +1,8 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/routes/app_navigation_routes.dart';
 import 'package:locally_app/widgets/appBar/custom_appbar.dart';
-import 'package:locally_app/widgets/button/custom_button.dart';
-import 'package:locally_app/widgets/textFormField/text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class OTPScreen extends StatelessWidget {
@@ -51,7 +48,7 @@ class OTPScreen extends StatelessWidget {
                   numberOfFields: 6,
                   filled: true,
                   fillColor: const Color(0xFFEDF4F8),
-
+                  fieldWidth: 12.w,
                   //set to true to show as box or false to show as dash
                   showFieldAsBox: true,
                   //runs when a code is typed in
