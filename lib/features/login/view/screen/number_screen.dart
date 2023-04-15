@@ -1,34 +1,25 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:locally_app/features/login/provider/login_provider.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/routes/app_navigation_routes.dart';
-import 'package:locally_app/utils/app_constant.dart';
-import 'package:locally_app/utils/app_labels.dart';
-import 'package:locally_app/utils/helper_functions.dart';
 import 'package:locally_app/widgets/appBar/custom_appbar.dart';
 import 'package:locally_app/widgets/button/custom_button.dart';
-import 'package:locally_app/widgets/textFormField/custom_text_form_field.dart';
+import 'package:locally_app/widgets/headingText/headingtext_widget.dart';
 import 'package:locally_app/widgets/textFormField/text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
-class LoginScreenUI extends ConsumerWidget {
-  const LoginScreenUI({super.key});
+class NumberScreen extends StatelessWidget {
+  const NumberScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    LoginProvider loginRead = ref.read(loginProvider);
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar:MyAppBar(title: "", onBackPressed: (){
         print("back pressed called");
       }),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Form(
-          key: loginRead.loginFormKey,
+          // key: loginRead.loginFormKey,
           child: Container(
             height: MediaQuery.of(context).size.height - 100,
             margin: EdgeInsets.symmetric(horizontal: 5.w),
@@ -37,21 +28,64 @@ class LoginScreenUI extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 5.0.h),
-                Text(
-                  "Create Account",
-                  style: TextStyle(fontSize: 20.sp),
-                ),
-                SizedBox(height: 5.0.h),
-                const TextFormFieldCustom(
-                    labelText: "Enter Name", icon: Icons.person),
+                // Text(
+                //   "Create Account",
+                //   style: TextStyle(fontSize: 20.sp),
+                // ),
+              const HeadingText(textValue: "Welcome"),
+                SizedBox(height: 3.0.h),
+                const Text("Enter your phone number here" , style: TextStyle(color: Color(0xFF6B829D)),),
                 SizedBox(
                   height: 3.0.h,
                 ),
-                const TextFormFieldCustom(
-                    labelText: "Email (Optional)", icon: Icons.person),
-                SizedBox(
-                  height: 7.0.h,
+                IntlPhoneField(
+                  decoration:  InputDecoration(
+                    labelText: 'Phone Number',
+                    filled: true,
+                    fillColor: const Color(0xFFEDF4F8),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(5),
+                  ),
+                  ),
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                  },
+                  onCountryChanged: (country) {
+                    print('Country changed to: ' + country.name);
+                  },
                 ),
+                SizedBox(height: 5.0.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                      text: const TextSpan(
+                        style: TextStyle( color: Color(0xFF6B829D)),
+                        children: [
+                          TextSpan(text: 'By signing up you are agreed to the '),
+                          TextSpan(text: 'Terms of ', style: TextStyle(color: Color(0xFF064769))),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                      text: const TextSpan(
+                        style: TextStyle(color:Color(0xFF6B829D)),
+                        children: [
+                          TextSpan(text: 'Service ' , style: TextStyle(color: Color(0xFF064769))),
+                          TextSpan(text: 'and '),
+                          TextSpan(text: 'Privacy Policy' , style: TextStyle(color: Color(0xFF064769))),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 5.0.h),
                 CustomButton(
                   title: "Submit",
                   color: const Color(0xFF064769),
@@ -61,9 +95,9 @@ class LoginScreenUI extends ConsumerWidget {
                   fontWeight: FontWeight.w300,
                   minSize: Size(72.w, 8.h),
                   onPressed: () {
-                    AppNavigation.navigateTo(AppNavRoutes.numberRoute);
+                    AppNavigation.navigateTo(AppNavRoutes.otpRoute);
                   },
-                ),
+                )
               ],
             ),
             // child: Column(
