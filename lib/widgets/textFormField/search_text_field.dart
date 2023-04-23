@@ -24,6 +24,7 @@ class SearchTextField extends StatelessWidget {
       child: TextFormField(
         controller: TextEditingController(),
         onFieldSubmitted: (s) {},
+        enabled: false,
         decoration: InputDecoration(
           hintText: 'Search',
           filled: true,

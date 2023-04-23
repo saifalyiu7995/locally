@@ -18,23 +18,19 @@ class HomeScreenUI extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
-      appBar: MyAppBar(
-        title: '',
-        onBackPressed: () => Navigator.pop(context),
-      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 1.h,
+                height: 10.h,
               ),
               const HomeScreenAddressChange(),
               SizedBox(
-                height: 2.h,
+                height: 5.h,
               ),
               const SearchTextField(),
               SizedBox(
@@ -74,9 +70,16 @@ class HomeScreenUI extends ConsumerWidget {
                 height: 140,
                 width: double.infinity,
                 child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   itemCount: 2,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => const SliderItem(),
+                  itemBuilder: (context, index) => const Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: SliderItem(
+                      image: "slider_image.png",
+                      width: 300,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
