@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:locally_app/features/home/view/screen/home_screen.dart';
+import 'package:locally_app/features/orders/view/screen/order_screen.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/theme/app_colors.dart';
@@ -38,14 +39,7 @@ class BottomNavBarProvider extends ChangeNotifier {
   List<Widget> userTabs = const [
     HomeScreenUI(),
     ShopScreen(),
-    Center(
-        child: Text(
-      "Orders",
-      style: TextStyle(
-        fontSize: 18,
-        color: AppColors.darkGreyColor,
-      ),
-    )),
+    OrderScreenUI(),
     Center(
         child: Text(
       "More",
