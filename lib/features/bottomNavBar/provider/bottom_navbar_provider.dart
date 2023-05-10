@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:locally_app/features/address/view/screen/address_screen.dart';
+import 'package:locally_app/features/address/view/screen/address_screen.dart';
+import 'package:locally_app/features/category/view/screens/category_screen.dart';
+import 'package:locally_app/features/error/view/screen/error_screen.dart';
 import 'package:locally_app/features/home/view/screen/home_screen.dart';
 import 'package:locally_app/features/orders/view/screen/order_screen.dart';
+import 'package:locally_app/features/notification/view/screen/notification_screen.dart';
+import 'package:locally_app/features/review/view/screen/review_screen.dart';
+import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/theme/app_colors.dart';
@@ -40,6 +47,7 @@ class BottomNavBarProvider extends ChangeNotifier {
     HomeScreenUI(),
     ShopScreen(),
     OrderScreenUI(),
+    LocationUpdateScreen(),
     Center(
         child: Text(
       "More",

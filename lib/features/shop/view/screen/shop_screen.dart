@@ -362,7 +362,95 @@ class ShopPopularItem extends StatelessWidget {
         const Text(
           "Vegitable Pizza",
           style: TextStyle(
-            color: Color(0xff041421),
+            color: Color(0xff064769),
+            fontWeight: FontWeight.bold,
+            fontSize: 13,
+          ),
+        ),
+        const SizedBox(
+          height: 3,
+        ),
+        const Text(
+          "Rs. 1200.00",
+          style: TextStyle(
+            color: Color(0xff6B829D),
+            fontSize: 11,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CategoryItem extends StatelessWidget {
+  final double height;
+  final double width;
+  const CategoryItem({
+    super.key,
+    this.height = 160,
+    this.width = 160,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: height,
+          width: 44.w,
+          margin: const EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 0,
+                blurRadius: 2,
+                offset: const Offset(0, 0),
+              ),
+            ],
+          ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: const Color(0xffF1F1F1)),
+                  child: const Image(
+                    image: AssetImage(
+                        '${AppConstant.assetImages}sub_category_item.png'),
+                    height: 52,
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 5,
+                top: 5,
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    color: Color(0xffA72622),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Text(
+          "Vegitable Pizza",
+          style: TextStyle(
+            color: Color(0xff064769),
             fontWeight: FontWeight.bold,
             fontSize: 13,
           ),
