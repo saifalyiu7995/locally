@@ -2,6 +2,8 @@ class AppNavRoutes {
   static const initialRoute = '/';
   static const homeRoute = '/home';
   static const loginRoute = '/login';
+  static const reviewsRoute = '/reviews';
+  static const writeReviewRoute = '/writeReview';
   static const otpRoute = '/otp';
   static const landingRoute = 'landing';
   static const locationRoute = 'location';
