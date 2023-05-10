@@ -12,15 +12,15 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.16),
-            spreadRadius: 0,
-            blurRadius: 4,
-            offset: const Offset(0, 4),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.grey.withOpacity(0.16),
+          //     spreadRadius: 0,
+          //     blurRadius: 4,
+          //     offset: const Offset(0, 4),
+          //   ),
+          // ],
           ),
-        ],
-      ),
       child: TextFormField(
         controller: TextEditingController(),
         onFieldSubmitted: (s) {},
@@ -28,7 +28,7 @@ class SearchTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'Search',
           filled: true,
-          fillColor: Colors.grey[100],
+          fillColor: Color(0xffF5F5F5),
           contentPadding: EdgeInsets.symmetric(horizontal: 10),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
