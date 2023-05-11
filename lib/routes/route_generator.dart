@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:locally_app/features/bottomNavBar/view/screen/bottom_navbar_screen.dart';
+import 'package:locally_app/features/login/view/screen/landing_screen.dart';
+import 'package:locally_app/features/login/view/screen/location_screen.dart';
 import 'package:locally_app/features/login/view/screen/login_screen.dart';
+import 'package:locally_app/features/login/view/screen/number_screen.dart';
+import 'package:locally_app/features/login/view/screen/otp_screen.dart';
+import 'package:locally_app/features/review/view/screen/review_screen.dart';
+import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
 import 'package:locally_app/features/splash/view/screen/splash_screen.dart';
 import 'package:locally_app/widgets/error/error_widget.dart';
 
@@ -16,13 +22,24 @@ class RouteGenerator {
         return routeScreen(child: const BottomNavBarScreenUI());
       case AppNavRoutes.loginRoute:
         return routeScreen(child: const LoginScreenUI());
-     
+      case AppNavRoutes.locationRoute:
+        return routeScreen(child: const LocationScreen());
+      case AppNavRoutes.otpRoute:
+        return routeScreen(child: const OTPScreen());
+      case AppNavRoutes.landingRoute:
+        return routeScreen(child: const LandingScreen());
+      case AppNavRoutes.numberRoute:
+        return routeScreen(child: const NumberScreen());
+      case AppNavRoutes.writeReviewRoute:
+        return routeScreen(child: const WriteReviewScreen());
+      case AppNavRoutes.reviewsRoute:
+        return routeScreen(child: const ReviewsScreen());
       case AppNavRoutes.defaultErrorScreen:
         return routeScreen(
             child: DefaultErrorScreen(
           onPressed: (() {}),
         ));
-     
+
       default:
         return _errorRoute();
     }

@@ -3,6 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:locally_app/features/bottomNavBar/view/screen/bottom_navbar_screen.dart';
+import 'package:locally_app/features/login/view/screen/landing_screen.dart';
+import 'package:locally_app/features/login/view/screen/location_screen.dart';
+import 'package:locally_app/features/login/view/screen/login_screen.dart';
+import 'package:locally_app/features/login/view/screen/number_screen.dart';
+import 'package:locally_app/features/login/view/screen/otp_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 
@@ -40,7 +45,8 @@ class SplashScreenState extends ConsumerState<SplashScreen> {
     // bool isLogin = ref.read(loginProvider).userIsLogin;
     bool isLogin =true;
     if (isLogin) {
-      return const BottomNavBarScreenUI();
+      // return const LoginScreenUI();
+      return const LandingScreen();
     } else {
       // return const LoginScreenUI();
     }
@@ -53,7 +59,7 @@ class SplashScreenState extends ConsumerState<SplashScreen> {
       height: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/splash.png"), fit: BoxFit.fill),
+            image: AssetImage("assets/images/Splash_img.png"), fit: BoxFit.fill),
       ),
     );
   }

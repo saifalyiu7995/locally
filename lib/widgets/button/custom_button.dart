@@ -13,10 +13,11 @@ class CustomButton extends StatelessWidget {
   final double elevation;
   final Color? shadowColor;
   final bool showOutline;
-
+  // final Color borderColor;
   final double? outlineWidth;
-
+  final bool requireBorderColor;
   final VoidCallback onPressed;
+
   const CustomButton({
     Key? key,
     required this.color,
@@ -32,6 +33,8 @@ class CustomButton extends StatelessWidget {
     this.title = "",
     this.showOutline = false,
     this.outlineWidth,
+    // this.borderColor = this.color,
+    this.requireBorderColor = false,
   }) : super(key: key);
 
   @override
@@ -42,7 +45,7 @@ class CustomButton extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               side: BorderSide(
                 width: 1.0,
-                color: color,
+                color: requireBorderColor ? const Color(0xFFF1F1F1) : color,
                 style: BorderStyle.solid,
               ),
             ),
@@ -72,43 +75,46 @@ class CustomButton extends StatelessWidget {
                 ),
               ],
             ))
-        : ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              elevation: elevation,
-              shadowColor: shadowColor ?? const Color(0xFFFAFAFA),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
+        : Container(
+
+          child: ElevatedButton(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                elevation: elevation,
+                shadowColor: shadowColor ?? const Color(0xFFFAFAFA),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                backgroundColor: color,
+                minimumSize: minSize,
               ),
-              backgroundColor: color,
-              minimumSize: minSize,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                showIcon
-                    ? Padding(
-                        padding: const EdgeInsets.only(top: 3),
-                        child: icon!,
-                      )
-                    : Container(),
-                SizedBox(
-                  width: showIcon ? 5 : 0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 4, left: 3, right: 3),
-                  child: AutoSizeText(
-                    title,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: fontColor,
-                        fontSize: fontSize,
-                        fontWeight: fontWeight,
-                        fontFamily: "Roboto-Light"),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  showIcon
+                      ? Padding(
+                          padding: const EdgeInsets.only(top: 3),
+                          child: icon!,
+                        )
+                      : Container(),
+                  SizedBox(
+                    width: showIcon ? 5 : 0,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4, left: 3, right: 3),
+                    child: AutoSizeText(
+                      title,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: fontColor,
+                          fontSize: fontSize,
+                          fontWeight: fontWeight,
+                          fontFamily: "Roboto-Light"),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          );
+        );
   }
 }
