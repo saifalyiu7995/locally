@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:locally_app/features/address/view/screen/address_screen.dart';
 import 'package:locally_app/features/address/view/screen/address_screen.dart';
 import 'package:locally_app/features/category/view/screens/category_screen.dart';
@@ -10,9 +11,8 @@ import 'package:locally_app/features/notification/view/screen/notification_scree
 import 'package:locally_app/features/review/view/screen/review_screen.dart';
 import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
-import 'package:locally_app/routes/app_navigation.dart';
-import 'package:locally_app/theme/app_colors.dart';
-import 'package:locally_app/widgets/snackBar/snack_bar_widget.dart';
+
+
 
 class BottomNavBarProvider extends ChangeNotifier {
   Ref ref;
@@ -22,7 +22,7 @@ class BottomNavBarProvider extends ChangeNotifier {
   DateTime? _currentBackPressTime;
   late TabController? controller;
   int? currentTabIndex = 0;
-
+  
   void onTabSelect(int index) {
     currentTabIndex = index;
     notifyListeners();
@@ -44,18 +44,12 @@ class BottomNavBarProvider extends ChangeNotifier {
   }
 
   List<Widget> userTabs = const [
+
     HomeScreenUI(),
     ShopScreen(),
     OrderScreenUI(),
     LocationUpdateScreen(),
-    Center(
-        child: Text(
-      "More",
-      style: TextStyle(
-        fontSize: 18,
-        color: AppColors.darkGreyColor,
-      ),
-    )),
+
   ];
   void initializeBottomNavData(TickerProvider tickerProvider) {
     controller = TabController(
