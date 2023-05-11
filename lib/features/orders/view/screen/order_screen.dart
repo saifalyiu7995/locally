@@ -62,6 +62,7 @@ class _OrderScreenUIState extends State<OrderScreenUI> {
           ),
         ),
       ),
+      floatingActionButton: CustomFloatingButton(itemCount: 5),
       // body: SingleChildScrollView(
       //   child: Form(
       //     // key: loginRead.loginFormKey,
@@ -412,41 +413,41 @@ class PopularItemHorizontal extends StatelessWidget {
     required this.isPast,
   });
 
-  void _showBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return Container(
-          height: MediaQuery.of(context).size.height *
-              0.5, // set the initial height here
-          child: DraggableScrollableSheet(
-            expand: true,
-            builder: (BuildContext context, ScrollController scrollController) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  ),
-                  color: Colors.white,
-                ),
-                child: ListView.builder(
-                  controller: scrollController,
-                  itemCount: 50,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text('Item $index'),
-                    );
-                  },
-                ),
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
+  // void _showBottomSheet(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     isScrollControlled: true,
+  //     builder: (BuildContext context) {
+  //       return Container(
+  //         height: MediaQuery.of(context).size.height *
+  //             0.5, // set the initial height here
+  //         child: DraggableScrollableSheet(
+  //           expand: true,
+  //           builder: (BuildContext context, ScrollController scrollController) {
+  //             return Container(
+  //               decoration: BoxDecoration(
+  //                 borderRadius: BorderRadius.only(
+  //                   topLeft: Radius.circular(20.0),
+  //                   topRight: Radius.circular(20.0),
+  //                 ),
+  //                 color: Colors.white,
+  //               ),
+  //               child: ListView.builder(
+  //                 controller: scrollController,
+  //                 itemCount: 50,
+  //                 itemBuilder: (BuildContext context, int index) {
+  //                   return ListTile(
+  //                     title: Text('Item $index'),
+  //                   );
+  //                 },
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -606,11 +607,12 @@ class PopularItemHorizontal extends StatelessWidget {
                                         ),
                                         Container(
                                           height: 300,
-                                          width: MediaQuery.of(context).size.width,
+                                          width:
+                                              MediaQuery.of(context).size.width,
                                           color: Color(0xffFBFBFB),
                                           child: const Center(
                                             child: Image(
-                                              image : NetworkImage(
+                                              image: NetworkImage(
                                                 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
                                               ),
                                               fit: BoxFit.fill,
@@ -618,35 +620,57 @@ class PopularItemHorizontal extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-
                                         Container(
-                                          margin: EdgeInsets.symmetric(horizontal: 10),
+                                          margin: EdgeInsets.symmetric(
+                                              horizontal: 10),
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Text("Specify Pizza" , style: TextStyle(fontSize: 18 , fontWeight: FontWeight.w800),),
-                                              Text("Order Details" , style: TextStyle(fontSize: 18 , fontWeight: FontWeight.w600),),
+                                              Text(
+                                                "Specify Pizza",
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.w800),
+                                              ),
+                                              Text(
+                                                "Order Details",
+                                                style: TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Order Number",
                                                       style: TextStyle(
-                                                        color: Color(0xff6B829D),
+                                                        color:
+                                                            Color(0xff6B829D),
                                                       ),
                                                     ),
-
                                                     Material(
                                                       elevation: 5.0,
-                                                      shadowColor: Color(0xffB6B7B7),
+                                                      shadowColor:
+                                                          Color(0xffB6B7B7),
                                                       child: Padding(
-                                                        padding: const EdgeInsets.all(4.0),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(4.0),
                                                         child: Container(
-                                                          color: Color(0xffF1F1F1),
-                                                          child: Text("#000-123"),
+                                                          color:
+                                                              Color(0xffF1F1F1),
+                                                          child:
+                                                              Text("#000-123"),
                                                         ),
                                                       ),
                                                     ),
@@ -655,207 +679,285 @@ class PopularItemHorizontal extends StatelessWidget {
                                               ),
                                               Divider(),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Order From",
                                                       style: TextStyle(
-                                                        color: Color(0xff6B829D),
+                                                        color:
+                                                            Color(0xff6B829D),
                                                       ),
                                                     ),
-
                                                     Text("Karachi broast")
                                                   ],
                                                 ),
                                               ),
                                               Divider(),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Delivery Address",
                                                       style: TextStyle(
-                                                        color: Color(0xff6B829D),
+                                                        color:
+                                                            Color(0xff6B829D),
                                                       ),
                                                     ),
-
-                                                    Flexible( child: Text("lorem ag g lipsim text testing long text for addresss os lorem lipsum gagtt" ,))
+                                                    Flexible(
+                                                        child: Text(
+                                                      "lorem ag g lipsim text testing long text for addresss os lorem lipsum gagtt",
+                                                    ))
                                                   ],
                                                 ),
                                               ),
                                               Divider(),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text("1x Specific Pizza",
+                                                    Text(
+                                                      "1x Specific Pizza",
                                                       style: TextStyle(
-                                                        fontSize: 16 ,
-                                                        fontWeight: FontWeight.w700,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w700,
                                                       ),
                                                     ),
                                                     Container(
-                                                      child: Text("Rs 619.44" ,style:TextStyle(
-                                                        fontSize: 16 ,
-                                                        fontWeight: FontWeight.w700,
-                                                      ),),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Divider(),
-                                              Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Text("Subtotal",
-                                                      style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
+                                                      child: Text(
+                                                        "Rs 619.44",
+                                                        style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Container(
-                                                      child: Text("Rs 619.44" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                      ),),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Text("Delivery Fee",
-                                                      style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      child: Text("Rs 95" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
-                                                      ),),
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                               Divider(),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text("PlatForm Fee",
+                                                    Text(
+                                                      "Subtotal",
                                                       style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
                                                       ),
                                                     ),
                                                     Container(
-                                                      child: Text("Rs 95" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
-                                                      ),),
+                                                      child: Text(
+                                                        "Rs 619.44",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text("Incl. Tax",
+                                                    Text(
+                                                      "Delivery Fee",
                                                       style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color:
+                                                            Color(0xff6B829D),
                                                       ),
                                                     ),
                                                     Container(
-                                                      child: Text("Rs 95" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
-                                                      ),),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Text("Voucher : John Smith",
-                                                      style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
+                                                      child: Text(
+                                                        "Rs 95",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color:
+                                                              Color(0xff6B829D),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Container(
-                                                      child: Text("Rs 95" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: Color(0xff6B829D),
-                                                      ),),
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                               Divider(),
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 4),
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
                                                 child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
-                                                    Text("Total (incl. GST)",
+                                                    Text(
+                                                      "PlatForm Fee",
                                                       style: TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color:
+                                                            Color(0xff6B829D),
                                                       ),
                                                     ),
                                                     Container(
-                                                      child: Text("Rs 193.44" ,style:TextStyle(
-                                                        fontSize: 14 ,
-                                                        fontWeight: FontWeight.w700,
-                                                      ),),
+                                                      child: Text(
+                                                        "Rs 95",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color:
+                                                              Color(0xff6B829D),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Incl. Tax",
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color:
+                                                            Color(0xff6B829D),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      child: Text(
+                                                        "Rs 95",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color:
+                                                              Color(0xff6B829D),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Voucher : John Smith",
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color:
+                                                            Color(0xff6B829D),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      child: Text(
+                                                        "Rs 95",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color:
+                                                              Color(0xff6B829D),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Divider(),
+                                              Container(
+                                                margin: EdgeInsets.symmetric(
+                                                    vertical: 4),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Total (incl. GST)",
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      child: Text(
+                                                        "Rs 193.44",
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                               CustomButton(
-                                                title: "Select items to reorder",
+                                                title:
+                                                    "Select items to reorder",
                                                 color: const Color(0xFF064769),
-                                                fontColor: const Color(0xFFFFFFFF),
+                                                fontColor:
+                                                    const Color(0xFFFFFFFF),
                                                 fontSize: 18,
                                                 showIcon: false,
                                                 fontWeight: FontWeight.w300,
                                                 minSize: Size(72.w, 5.h),
-                                                onPressed:(){
-                                                AppNavigation.navigateTo(AppNavRoutes.viewCart);
-
-                                                }
+                                                onPressed: () {},
                                               )
                                             ],
                                           ),
                                         ),
-
                                       ],
                                     ),
                                   ),
@@ -870,6 +972,70 @@ class PopularItemHorizontal extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomFloatingButton extends StatelessWidget {
+  final int itemCount;
+
+  const CustomFloatingButton({Key? key, this.itemCount = 0}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        AppNavigation.navigateTo(AppNavRoutes.viewCart);
+      },
+      child: Stack(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Icon(
+                Icons.shopping_cart_sharp,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          // Positioned(
+          //   top: 8,
+          //   left: 8,
+          //   child: Icon(
+          //     Icons.shopping_cart,
+          //     color: Colors.white,
+          //   ),
+          // ),
+          Positioned(
+            top: 7,
+            left: 2,
+            child: Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              constraints: BoxConstraints(
+                minWidth: 16,
+                minHeight: 16,
+              ),
+              child: Text(
+                itemCount.toString(),
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 10,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
