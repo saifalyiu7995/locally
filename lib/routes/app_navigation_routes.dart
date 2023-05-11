@@ -3,6 +3,7 @@ class AppNavRoutes {
   static const homeRoute = '/home';
   static const loginRoute = '/login';
   static const requestDetailRoute = '/requestDetail';
+  static const orderStatusRoute = '/orderStatus';
   static const viewOptions = '/viewOptions';
   static const itineraries = '/Itineraries';
   static const itineraryDetail = '/ItineraryDetail';
@@ -24,4 +25,5 @@ class AppNavRoutes {
   static const taqaSafeAirlineList = "/taqaSafeAirlineList";
   static const travelRiskManagementProgram = "/travelRiskManagementProgram";
   static const taqaCorporateRatesWithHotels = "/taqaCorporateRatesWithHotels";
+  static const viewCart = "/viewCart";
 }
