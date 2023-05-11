@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:locally_app/features/bottomNavBar/view/screen/bottom_navbar_screen.dart';
+import 'package:locally_app/features/cart/view/cart_screen.dart';
 import 'package:locally_app/features/login/view/screen/landing_screen.dart';
 import 'package:locally_app/features/login/view/screen/location_screen.dart';
 import 'package:locally_app/features/login/view/screen/login_screen.dart';
 import 'package:locally_app/features/login/view/screen/number_screen.dart';
 import 'package:locally_app/features/login/view/screen/otp_screen.dart';
+import 'package:locally_app/features/orders/view/screen/order_status_screen.dart';
 import 'package:locally_app/features/review/view/screen/review_screen.dart';
 import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
 import 'package:locally_app/features/splash/view/screen/splash_screen.dart';
@@ -30,6 +32,10 @@ class RouteGenerator {
         return routeScreen(child: const LandingScreen());
       case AppNavRoutes.numberRoute:
         return routeScreen(child: const NumberScreen());
+      case AppNavRoutes.orderStatusRoute:
+        return routeScreen(child: const OrderStatusScreen());
+      case AppNavRoutes.viewCart:
+        return routeScreen(child: const CartScreen());
       case AppNavRoutes.writeReviewRoute:
         return routeScreen(child: const WriteReviewScreen());
       case AppNavRoutes.reviewsRoute:
