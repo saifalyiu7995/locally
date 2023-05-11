@@ -19,44 +19,65 @@ class MenuScreenUI extends ConsumerWidget {
       backgroundColor: const Color(0xFFFFFFFF),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MenuHeader(
-              name: '',
-              workPhrase: '',
+            SizedBox(
+              height: 3.h,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 10,
+              ),
+              child: Text(
+                'Hello, Alamdar',
+                style: TextStyle(
+                  color: Color(0xff041421),
+                  fontSize: 22,
+                ),
+              ),
+            ),
+            const Divider(
+              color: Color(0xffE8E8E8),
+              thickness: 1.5,
+            ),
+            SizedBox(
+              height: 3.h,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 25,
+                horizontal: 20,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  MenuItemWidget(
+                      iconName: "my_order.svg",
+                      menuItemTitle: "My Orders",
+                      onTap: () async {
+                        ref.read(bottomBavBarProvider).animateToTabIndex(1);
+                      }),
                   const Divider(
                     color: Color(0xffE8E8E8),
                     thickness: 1.5,
                   ),
                   SizedBox(
-                    height: 3.h,
-                  ),
-                  MenuItemWidget(
-                      iconName: "profile_menu.svg",
-                      menuItemTitle: "My Profile",
-                      onTap: () async {
-                        ref.read(bottomBavBarProvider).animateToTabIndex(1);
-                        
-                      }),
-                  SizedBox(
                     height: 2.h,
                   ),
                   MenuItemWidget(
-                    iconName: "document.svg",
-                    menuItemTitle: "My Request",
+                    iconName: "my_details.svg",
+                    menuItemTitle: "My Details",
                     onTap: () {
                       ref.read(bottomBavBarProvider).animateToTabIndex(0);
                     },
+                  ),
+                  const Divider(
+                    color: Color(0xffE8E8E8),
+                    thickness: 1.5,
                   ),
                   SizedBox(
                     height: 2.h,
@@ -64,25 +85,22 @@ class MenuScreenUI extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 3),
                     child: MenuItemWidget(
-                      iconName: "new_request.svg",
-                      menuItemTitle: "New Request",
-                      onTap: () {
-                       
-                      },
+                      iconName: "headphone.svg",
+                      menuItemTitle: "Get Help",
+                      onTap: () {},
                     ),
+                  ),
+                  const Divider(
+                    color: Color(0xffE8E8E8),
+                    thickness: 1.5,
                   ),
                   SizedBox(
                     height: 2.h,
                   ),
                   MenuItemWidget(
-                    iconName: "my_approvals.svg",
-                    menuItemTitle: "My Approvals",
-                    onTap: () {
-                    
-                    },
-                  ),
-                  SizedBox(
-                    height: 3.h,
+                    iconName: "wallet.svg",
+                    menuItemTitle: "Payment Methods",
+                    onTap: () {},
                   ),
                   const Divider(
                     color: Color(0xffE8E8E8),
@@ -92,95 +110,22 @@ class MenuScreenUI extends ConsumerWidget {
                     height: 3.h,
                   ),
                   MenuItemWidget(
-                    iconName: "faqs.svg",
-                    menuItemTitle: "FAQs",
-                    onTap: () {
-                     
-                    },
+                    iconName: "my_address.svg",
+                    menuItemTitle: "My Address",
+                    onTap: () {},
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "user_guide.svg",
-                    menuItemTitle: "User Video Guide",
-                    onTap: () {
-                      //AppNavigation.navigateTo(AppNavRoutes.download);
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "travel_tips.svg",
-                    menuItemTitle: "General Travel Tips",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "travel_policy.svg",
-                    menuItemTitle: "Global Travel Policy",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "insurance.svg",
-                    menuItemTitle: "Insurance Q and A",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "travel_company.svg",
-                    menuItemTitle: "Travel Management Companies",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "airplane.svg",
-                    menuItemTitle: "TAQA Safe Airline List",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "money.svg",
-                    menuItemTitle: "TAQA Corporate Rates with Hotels",
-                    onTap: () {
-                     
-                    },
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  MenuItemWidget(
-                    iconName: "management_program.svg",
-                    menuItemTitle: "Travel Risk Management Program",
-                    onTap: () {
-                     
-                    },
+                  const Divider(
+                    color: Color(0xffE8E8E8),
+                    thickness: 1.5,
                   ),
                   SizedBox(
                     height: 4.h,
                   ),
+                  MenuItemWidget(
+                    iconName: "",
+                    menuItemTitle: "FAQ's",
+                    onTap: () {},
+                  ),
                   const Divider(
                     color: Color(0xffE8E8E8),
                     thickness: 1.5,
@@ -189,15 +134,25 @@ class MenuScreenUI extends ConsumerWidget {
                     height: 3.h,
                   ),
                   MenuItemWidget(
-                    iconName: "logout.svg",
+                    iconName: "",
+                    menuItemTitle: "About",
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    color: Color(0xffE8E8E8),
+                    thickness: 1.5,
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  MenuItemWidget(
+                    iconName: "",
                     menuItemTitle: "Logout",
                     isLogout: true,
                     onTap: () async {
                       showLogoutConfirmationDialog(
                         context: context,
-                        onPositiveTap: () async {
-                         
-                        },
+                        onPositiveTap: () async {},
                         onNegativeTap: () {
                           AppNavigation.goBack();
                         },
@@ -205,11 +160,15 @@ class MenuScreenUI extends ConsumerWidget {
                     },
                   ),
                   SizedBox(
-                    height: 4.h,
+                    height: 0.5.h,
+                  ),
+                  const Divider(
+                    color: Color(0xffE8E8E8),
+                    thickness: 1.5,
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
