@@ -46,29 +46,29 @@ class BottomNavBarScreenUIState extends ConsumerState<BottomNavBarScreenUI>
             children: [
               BottomNavBarTab(
                 imgPath: ref.watch(bottomBavBarProvider).currentTabIndex == 0
-                    ? 'home.svg'
+                    ? 'homeActive.svg'
                     : 'home.svg',
                 title: AppConstant.bottomBarHome,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(0),
               ),
               BottomNavBarTab(
                 imgPath: ref.watch(bottomBavBarProvider).currentTabIndex == 1
-                    ? 'notification.svg'
-                    : 'notification.svg',
-                title: AppConstant.bottomBarAlert,
+                    ? 'profileActive.svg'
+                    : 'profile.svg',
+                title: AppConstant.bottomBarProfile,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(1),
               ),
               
               BottomNavBarTab(
-                imgPath: 'order.svg',
-                title: AppConstant.bottomBarOrders,
+                imgPath: 'isos.png',
+                title: AppConstant.bottomBarIsosCall,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(2),
               ),
               BottomNavBarTab(
                 imgPath: ref.watch(bottomBavBarProvider).currentTabIndex == 3
-                    ? 'menu.svg'
+                    ? 'menuActive.svg'
                     : 'menu.svg',
-                title: AppConstant.bottomBarMore,
+                title: AppConstant.bottomBarMenu,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(3),
               ),
             ],
