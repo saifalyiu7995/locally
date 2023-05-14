@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:locally_app/features/address/view/screen/address_screen.dart';
 import 'package:locally_app/features/bottomNavBar/provider/bottom_navbar_provider.dart';
-import 'package:locally_app/features/login/provider/login_provider.dart';
-import 'package:locally_app/features/menu/view/widgets/menu_header.dart';
 import 'package:locally_app/features/menu/view/widgets/menu_item.dart';
 import 'package:locally_app/routes/app_navigation.dart';
+import 'package:locally_app/routes/app_navigation_routes.dart';
 import 'package:locally_app/widgets/customDialog/custom_dialog_logout.dart';
 import 'package:sizer/sizer.dart';
 
@@ -13,7 +14,6 @@ class MenuScreenUI extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    LoginProvider loginWatch = ref.watch(loginProvider);
     return SafeArea(
         child: Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
@@ -59,7 +59,8 @@ class MenuScreenUI extends ConsumerWidget {
                       iconName: "my_order.svg",
                       menuItemTitle: "My Orders",
                       onTap: () async {
-                        ref.read(bottomBavBarProvider).animateToTabIndex(1);
+                        // ref.read(bottomBavBarProvider).animateToTabIndex(1);
+                        AppNavigation.navigateTo(AppNavRoutes.orderScreenRoute);
                       }),
                   const Divider(
                     color: Color(0xffE8E8E8),
@@ -87,7 +88,8 @@ class MenuScreenUI extends ConsumerWidget {
                     child: MenuItemWidget(
                       iconName: "headphone.svg",
                       menuItemTitle: "Get Help",
-                      onTap: () {},
+                      onTap: () =>
+                          AppNavigation.navigateTo(AppNavRoutes.reviewScreen),
                     ),
                   ),
                   const Divider(
@@ -112,7 +114,24 @@ class MenuScreenUI extends ConsumerWidget {
                   MenuItemWidget(
                     iconName: "my_address.svg",
                     menuItemTitle: "My Address",
-                    onTap: () {},
+                    onTap: () => showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      enableDrag: true,
+                      backgroundColor: Colors.white,
+                      clipBehavior: Clip.antiAlias,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(16),
+                          topRight: Radius.circular(16),
+                        ),
+                      ),
+                      builder: (BuildContext c) {
+                        return const AddressBottomSheet(
+                            initialPosition: LatLng(37.7749, -122.4194),
+                            initialZoom: 12);
+                      },
+                    ),
                   ),
                   const Divider(
                     color: Color(0xffE8E8E8),

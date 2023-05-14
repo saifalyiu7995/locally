@@ -119,7 +119,7 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                   GestureDetector(
                     onTap: () => showSearch(
                       context: context,
-                      delegate: SearchDelegateShops(),
+                      delegate: SearchDelegateProduct(),
                     ),
                     child: const SearchTextField(),
                   ),
@@ -167,10 +167,11 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                     height: 10,
                   ),
                   SizedBox(
-                    height: 200,
+                    height: 170,
                     width: double.infinity,
                     child: ListView.builder(
                       itemCount: 7,
+                      padding: EdgeInsets.zero,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => const Padding(
                         padding: EdgeInsets.only(right: 10),
@@ -178,14 +179,12 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   SizedBox(
                     height: 300,
                     width: double.infinity,
                     child: ListView.builder(
                       itemCount: 7,
+                      padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) => const Padding(
                         padding: EdgeInsets.symmetric(vertical: 10),

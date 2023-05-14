@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
 import 'package:locally_app/routes/app_navigation.dart';
@@ -19,7 +18,6 @@ class SearchDelegateShops extends SearchDelegate {
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
         onPressed: () {
           AppNavigation.goBack();
@@ -32,7 +30,6 @@ class SearchDelegateShops extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     return const Text("");
   }
 

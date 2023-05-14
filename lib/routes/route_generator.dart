@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:locally_app/features/bottomNavBar/view/screen/bottom_navbar_screen.dart';
 import 'package:locally_app/features/cart/view/cart_screen.dart';
+import 'package:locally_app/features/category/view/screens/category_screen.dart';
 import 'package:locally_app/features/login/view/screen/landing_screen.dart';
 import 'package:locally_app/features/login/view/screen/location_screen.dart';
 import 'package:locally_app/features/login/view/screen/login_screen.dart';
 import 'package:locally_app/features/login/view/screen/number_screen.dart';
 import 'package:locally_app/features/login/view/screen/otp_screen.dart';
+import 'package:locally_app/features/orders/view/screen/order_screen.dart';
 import 'package:locally_app/features/orders/view/screen/order_status_screen.dart';
 import 'package:locally_app/features/review/view/screen/review_screen.dart';
 import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
+import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
 import 'package:locally_app/features/splash/view/screen/splash_screen.dart';
 import 'package:locally_app/widgets/error/error_widget.dart';
 
@@ -39,6 +42,14 @@ class RouteGenerator {
       case AppNavRoutes.writeReviewRoute:
         return routeScreen(child: const WriteReviewScreen());
       case AppNavRoutes.reviewsRoute:
+        return routeScreen(child: const ReviewsScreen());
+      case AppNavRoutes.categoryScreen:
+        return routeScreen(child: const CategoryScreen());
+      case AppNavRoutes.orderScreenRoute:
+        return routeScreen(child: const OrderScreenUI());
+      case AppNavRoutes.shopScreen:
+        return routeScreen(child: const ShopScreen());
+      case AppNavRoutes.reviewScreen:
         return routeScreen(child: const ReviewsScreen());
       case AppNavRoutes.defaultErrorScreen:
         return routeScreen(

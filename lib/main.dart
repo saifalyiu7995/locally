@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
-          title: 'TAQA - BTMS',
+          title: 'Locally',
           theme:
               ThemeData(primarySwatch: Colors.blue, primaryColor: Colors.white),
           debugShowCheckedModeBanner: false,

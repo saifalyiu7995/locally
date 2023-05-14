@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:locally_app/features/address/view/screen/address_screen.dart';
 import 'package:locally_app/features/home/view/widget/home_address_change.dart';
 import 'package:locally_app/features/home/view/widget/home_category_product_item.dart';
 import 'package:locally_app/features/home/view/widget/home_product_item.dart';
 import 'package:locally_app/features/home/view/widget/view_all_with_heading.dart';
+import 'package:locally_app/routes/app_navigation.dart';
+import 'package:locally_app/routes/app_navigation_routes.dart';
+import 'package:locally_app/utils/search_delegate_shop.dart';
 import 'package:locally_app/widgets/appbar/my_appbar.dart';
 import 'package:locally_app/widgets/cetagory/sub_cetagory_item.dart';
 import 'package:locally_app/widgets/grocery/grocery_item.dart';
@@ -32,7 +36,12 @@ class HomeScreenUI extends ConsumerWidget {
               SizedBox(
                 height: 5.h,
               ),
-              const SearchTextField(),
+              GestureDetector(
+                  onTap: () => showSearch(
+                        context: context,
+                        delegate: SearchDelegateShops(),
+                      ),
+                  child: const SearchTextField()),
               SizedBox(
                 height: 2.h,
               ),
@@ -43,7 +52,7 @@ class HomeScreenUI extends ConsumerWidget {
                   itemCount: 12,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => const Padding(
-                    padding: EdgeInsets.only(right: 50),
+                    padding: EdgeInsets.only(right: 35),
                     child: GroceryItem(),
                   ),
                 ),
@@ -87,7 +96,10 @@ class HomeScreenUI extends ConsumerWidget {
               ),
               Column(
                 children: [
-                  const ViewAllWithHeading(),
+                  ViewAllWithHeading(
+                    onTap: () =>
+                        AppNavigation.navigateTo(AppNavRoutes.categoryScreen),
+                  ),
                   SizedBox(
                     height: 1.h,
                   ),
@@ -110,7 +122,10 @@ class HomeScreenUI extends ConsumerWidget {
               ),
               Column(
                 children: [
-                  const ViewAllWithHeading(),
+                  ViewAllWithHeading(
+                    onTap: () =>
+                        AppNavigation.navigateTo(AppNavRoutes.categoryScreen),
+                  ),
                   SizedBox(
                     height: 1.h,
                   ),
@@ -120,9 +135,26 @@ class HomeScreenUI extends ConsumerWidget {
                     child: ListView.builder(
                       itemCount: 6,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => const Padding(
-                        padding: EdgeInsets.only(right: 10, bottom: 10),
-                        child: HomeProductItem(),
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(right: 10, bottom: 10),
+                        child: HomeProductItem(
+                          onTap: () => showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            enableDrag: true,
+                            backgroundColor: Colors.white,
+                            clipBehavior: Clip.antiAlias,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                              ),
+                            ),
+                            builder: (BuildContext c) {
+                              return const ProductDetails();
+                            },
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -133,7 +165,10 @@ class HomeScreenUI extends ConsumerWidget {
               ),
               Column(
                 children: [
-                  const ViewAllWithHeading(),
+                  ViewAllWithHeading(
+                    onTap: () =>
+                        AppNavigation.navigateTo(AppNavRoutes.categoryScreen),
+                  ),
                   SizedBox(
                     height: 1.h,
                   ),
@@ -143,9 +178,26 @@ class HomeScreenUI extends ConsumerWidget {
                     child: ListView.builder(
                       itemCount: 6,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => const Padding(
-                        padding: EdgeInsets.only(right: 10, bottom: 10),
-                        child: HomeProductItem(),
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(right: 10, bottom: 10),
+                        child: HomeProductItem(
+                          onTap: () => showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            enableDrag: true,
+                            backgroundColor: Colors.white,
+                            clipBehavior: Clip.antiAlias,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                              ),
+                            ),
+                            builder: (BuildContext c) {
+                              return const ProductDetails();
+                            },
+                          ),
+                        ),
                       ),
                     ),
                   ),

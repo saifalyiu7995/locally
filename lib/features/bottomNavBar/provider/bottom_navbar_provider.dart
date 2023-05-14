@@ -46,7 +46,7 @@ class BottomNavBarProvider extends ChangeNotifier {
 
   List<Widget> userTabs = const [
     HomeScreenUI(),
-    ShopScreen(),
+    NotificationScreen(),
     OrderScreenUI(),
     MenuScreenUI(),
   ];
