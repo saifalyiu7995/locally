@@ -109,69 +109,60 @@ class CustomTextFormField extends StatelessWidget {
           floatingLabelBehavior:
               floatingLabelBehavior ?? FloatingLabelBehavior.never,
           isDense: true,
-          // label: useRitchLabel
-          //     ? RichText(
-          //         text: TextSpan(
-          //             text: labelText,
-          //             style: TextStyle(
-          //                 color: labelColor ?? const Color(0xFF94A2BE),
-          //                 fontSize: hintFont,
-          //                 fontFamily: "Roboto-Light"),
-          //             children: <TextSpan>[
-          //               TextSpan(
-          //                 text: required! ? ' *' : ' ',
-          //                 style: TextStyle(
-          //                     color: AppColors.redColor,
-          //                     fontSize: hintFont,
-          //                     fontFamily: "Roboto-Light"),
-          //               )
-          //             ]),
-          //       )
-          //     : null,s
-          // labelText: useRitchLabel ? null : labelText,
-          labelText: labelText,
+          label: useRitchLabel
+              ? RichText(
+                  text: TextSpan(
+                      text: labelText,
+                      style: TextStyle(
+                          color: labelColor ?? const Color(0xFF94A2BE),
+                          fontSize: hintFont,
+                          fontFamily: "Roboto-Light"),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: required! ? ' *' : ' ',
+                          style: TextStyle(
+                              color: AppColors.redColor,
+                              fontSize: hintFont,
+                              fontFamily: "Roboto-Light"),
+                        )
+                      ]),
+                )
+              : null,
+          labelText: useRitchLabel ? null : labelText,
           labelStyle: TextStyle(
             color: labelColor ?? const Color(0xFF94A2BE),
             fontSize: hintFont,
             fontFamily: "Roboto-Light",
           ),
-          fillColor: const Color(0xFFEDF4F8),
-          filled: true,
+          fillColor: fillColor,
+          filled: isFilled,
           suffixIcon: suffixWidget,
           prefixIcon: leadingIcon,
           contentPadding: padding ??
-              const EdgeInsets.only(left: 15, top: 14, right: 15, bottom: 20),
-          // border: border ??
-          //     OutlineInputBorder(
-          //         borderRadius: BorderRadius.all(
-          //             Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
-          //         borderSide: BorderSide(
-          //             width: borderWidth, color: const Color(0xFF94A2BE))),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(17),
-          ),
-          disabledBorder:  OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(17),
-          ),
-          // enabledBorder: enableBorder ??
-          //     OutlineInputBorder(
-          //         borderRadius: BorderRadius.all(
-          //             Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
-          //         borderSide: BorderSide(
-          //             width: borderWidth, color: const Color(0xFF94A2BE))),
-          enabledBorder: InputBorder.none,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(17),
-          ),
-          // focusedBorder: focusedBorder ??
-          //     OutlineInputBorder(
-          //         borderRadius: BorderRadius.all(
-          //             Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
-          //         borderSide: BorderSide(
-          //             width: borderWidth, color: const Color(0xFF94A2BE))),
+              const EdgeInsets.only(left: 15, top: 14, right: 15, bottom: 14),
+          border: border ??
+              OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
+                  borderSide: BorderSide(
+                      width: borderWidth, color: const Color(0xFF94A2BE))),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                  Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
+              borderSide: BorderSide(
+                  width: borderWidth, color: const Color(0xFF94A2BE))),
+          enabledBorder: enableBorder ??
+              OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
+                  borderSide: BorderSide(
+                      width: borderWidth, color: const Color(0xFF94A2BE))),
+          focusedBorder: focusedBorder ??
+              OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(!isEnable ? 0.3 : borderRadius ?? 2)),
+                  borderSide: BorderSide(
+                      width: borderWidth, color: const Color(0xFF94A2BE))),
           errorBorder: errorBorder ??
               OutlineInputBorder(
                 borderRadius: BorderRadius.all(
