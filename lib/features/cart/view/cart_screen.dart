@@ -84,7 +84,6 @@ class _CartScreenState extends State<CartScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(onPressed: (){
-                    print("button click");
                   }, child: Row(
                     children: [
                       Icon(
@@ -133,77 +132,75 @@ class _CartScreenState extends State<CartScreen> {
                        child: Container(
                          width: 300,
                          height: 10,
-                         child: Expanded(
-                           child: Row(
-                             children: [
-                               SizedBox(
-                                child: Container(
-                                  margin: const EdgeInsets.only(left: 10 , right: 5),
-                                   height: 40,
-                                   width: 55,
-                                   decoration: BoxDecoration(
-                                     borderRadius: BorderRadius.circular(5),
-                                     image: const DecorationImage(
-                                       image: NetworkImage(
-                                         'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
-                                       ),
-                                       fit: BoxFit.cover,
+                         child: Row(
+                           children: [
+                             SizedBox(
+                              child: Container(
+                                margin: const EdgeInsets.only(left: 10 , right: 5),
+                                 height: 40,
+                                 width: 55,
+                                 decoration: BoxDecoration(
+                                   borderRadius: BorderRadius.circular(5),
+                                   image: const DecorationImage(
+                                     image: NetworkImage(
+                                       'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
                                      ),
+                                     fit: BoxFit.cover,
                                    ),
                                  ),
                                ),
-                               Column(
-                                 mainAxisAlignment: MainAxisAlignment.center,
-                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
-                                   Text("Barita" , style: TextStyle(
-                                     fontWeight: FontWeight.w700,
-                                   ),),
-                                   SizedBox(
-                                     height: 3,
-                                   ),
-                                   Row(
-                                     children: [
-                                       Text("Barita" , style: TextStyle(
-                                   fontWeight: FontWeight.w200,
+                             ),
+                             Column(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Text("Barita" , style: TextStyle(
+                                   fontWeight: FontWeight.w700,
+                                 ),),
+                                 SizedBox(
+                                   height: 3,
+                                 ),
+                                 Row(
+                                   children: [
+                                     Text("Barita" , style: TextStyle(
+                                 fontWeight: FontWeight.w200,
+                                       fontSize: 12
+                                 ),),
+                                     SizedBox(width: 2,),
+                                     Text("." , style: TextStyle(
+                                       fontWeight: FontWeight.w200,
                                          fontSize: 12
-                                   ),),
-                                       SizedBox(width: 2,),
-                                       Text("." , style: TextStyle(
-                                         fontWeight: FontWeight.w200,
-                                           fontSize: 12
-                                       ),
-                                       ),
-                                       SizedBox(width: 2,),
-                                       Text("Italian food" , style: TextStyle(
-                                         fontWeight: FontWeight.w200,
-                                           fontSize: 12
-                                       ),),
-                                       SizedBox(width: 15,),
-                                       Text("Rs 1600" , style: TextStyle(
-                                         fontWeight: FontWeight.w200,
-                                           fontSize: 12
-                                       ),)
-                                     ],
-                                   )
-                                 ],
-                               ),
-                               Expanded(child: SizedBox(
-                                 child: Align(
-                                   alignment: Alignment.topRight,
-                                   child: Container(
-                                     color: Colors.red,
-                                     padding: EdgeInsets.all(1),
-                                     child: Icon(
-                                       Icons.add,
-                                       color: Colors.white,
-                                       size: 14,
                                      ),
+                                     ),
+                                     SizedBox(width: 2,),
+                                     Text("Italian food" , style: TextStyle(
+                                       fontWeight: FontWeight.w200,
+                                         fontSize: 12
+                                     ),),
+                                     SizedBox(width: 15,),
+                                     Text("Rs 1600" , style: TextStyle(
+                                       fontWeight: FontWeight.w200,
+                                         fontSize: 12
+                                     ),)
+                                   ],
+                                 )
+                               ],
+                             ),
+                             Expanded(child: SizedBox(
+                               child: Align(
+                                 alignment: Alignment.topRight,
+                                 child: Container(
+                                   color: Color(0xffA72622),
+                                   padding: EdgeInsets.all(1),
+                                   child: Icon(
+                                     Icons.add,
+                                     color: Colors.white,
+                                     size: 14,
                                    ),
                                  ),
-                               )),
-                             ],
-                           ),
+                               ),
+                             )),
+                           ],
                          ),
                          // color:Colors.red,
                        ),
