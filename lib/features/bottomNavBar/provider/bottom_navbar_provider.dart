@@ -10,6 +10,7 @@ import 'package:locally_app/features/orders/view/screen/order_screen.dart';
 import 'package:locally_app/features/notification/view/screen/notification_screen.dart';
 import 'package:locally_app/features/review/view/screen/review_screen.dart';
 import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
+import 'package:locally_app/features/orders/view/screen/order_screen.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/theme/app_colors.dart';

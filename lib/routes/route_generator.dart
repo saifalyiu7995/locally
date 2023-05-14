@@ -12,6 +12,7 @@ import 'package:locally_app/features/orders/view/screen/order_status_screen.dart
 import 'package:locally_app/features/review/view/screen/review_screen.dart';
 import 'package:locally_app/features/review/view/screen/write_review_screen.dart';
 import 'package:locally_app/features/shop/view/screen/shop_screen.dart';
+import 'package:locally_app/features/orders/view/screen/order_status_screen.dart';
 import 'package:locally_app/features/splash/view/screen/splash_screen.dart';
 import 'package:locally_app/widgets/error/error_widget.dart';
 
