@@ -19,7 +19,7 @@ class RatingStar extends StatelessWidget {
             height: 1.5.h,
           ),
           const SizedBox(
-            width: 1,
+            width: 2,
           ),
           const Text(
             "3.5",

@@ -12,21 +12,21 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.grey.withOpacity(0.16),
-          //     spreadRadius: 0,
-          //     blurRadius: 4,
-          //     offset: const Offset(0, 4),
-          //   ),
-          // ],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            spreadRadius: 0,
+            blurRadius: 4,
+            offset: const Offset(0, 4),
           ),
+        ],
+      ),
       child: TextFormField(
         controller: TextEditingController(),
         onFieldSubmitted: (s) {},
         enabled: false,
         decoration: InputDecoration(
-          hintText: 'Search',
+          hintText: 'What do you want to order?',
           filled: true,
           fillColor: Color(0xffF5F5F5),
           contentPadding: EdgeInsets.symmetric(horizontal: 10),

@@ -18,8 +18,8 @@ class ViewAllWithHeading extends StatelessWidget {
         Text(
           titile,
           style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
             color: Color(0xff041421),
           ),
         ),
@@ -30,8 +30,8 @@ class ViewAllWithHeading extends StatelessWidget {
               Text(
                 " View All",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
                   color: Color(0xffA72622),
                 ),
               ),

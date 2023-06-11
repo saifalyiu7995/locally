@@ -28,7 +28,7 @@ class _OrderScreenUIState extends State<OrderScreenUI> {
       appBar: MyAppBar(
           title: "Orders",
           onBackPressed: () {
-            AppNavigation.goBack();
+            // AppNavigation.goBack();
           }),
       backgroundColor: Colors.white,
       body: SizedBox(
@@ -328,414 +328,434 @@ class PopularItemHorizontal extends StatelessWidget {
                                   return ListView(
                                     controller: scrollController,
                                     children: [
-                                         Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(20.0),
-                                              topRight: Radius.circular(20.0),
-                                            ),
-                                            color: Colors.white,
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20.0),
+                                            topRight: Radius.circular(20.0),
                                           ),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              const SizedBox(
-                                                height: 10,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(5),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    const SizedBox.shrink(),
-                                                    Container(
-                                                      width: 30,
-                                                      height: 30,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color: Colors.white,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            color: Colors.black
-                                                                .withOpacity(0.3),
-                                                            offset: Offset(0, 1),
-                                                            blurRadius: 2,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      child:  InkWell(
-                                                        onTap: (){
-                                                          AppNavigation.goBack();
-                                                        },
-                                                        child: Icon(
-                                                          Icons.close,
-                                                          color: Color(0xffA72622),
-                                                          size: 19,
-
+                                          color: Colors.white,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(5),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  const SizedBox.shrink(),
+                                                  Container(
+                                                    width: 30,
+                                                    height: 30,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.white,
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: Colors.black
+                                                              .withOpacity(0.3),
+                                                          offset: Offset(0, 1),
+                                                          blurRadius: 2,
                                                         ),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                height: 300,
-                                                width:
-                                                    MediaQuery.of(context).size.width,
-                                                color: Color(0xffFBFBFB),
-                                                child: const Center(
-                                                  child: Image(
-                                                    image: NetworkImage(
-                                                      'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
+                                                      ],
                                                     ),
-                                                    fit: BoxFit.fill,
-                                                    height: 250,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        AppNavigation.goBack();
+                                                      },
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color:
+                                                            Color(0xffA72622),
+                                                        size: 19,
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              height: 300,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              color: Color(0xffFBFBFB),
+                                              child: const Center(
+                                                child: Image(
+                                                  image: NetworkImage(
+                                                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
                                                   ),
+                                                  fit: BoxFit.fill,
+                                                  height: 250,
                                                 ),
                                               ),
-                                              Container(
-                                                margin: EdgeInsets.symmetric(
-                                                    horizontal: 10),
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "Specify Pizza",
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                    ),
-                                                    Text(
-                                                      "Order Details",
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w600),
-                                                    ),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Order Number",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Color(0xff6B829D),
-                                                            ),
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  horizontal: 10),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Specify Pizza",
+                                                    style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w800),
+                                                  ),
+                                                  Text(
+                                                    "Order Details",
+                                                    style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Order Number",
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xff6B829D),
                                                           ),
-                                                          Material(
-                                                            elevation: 5.0,
-                                                            shadowColor:
-                                                                Color(0xffB6B7B7),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Container(
-                                                                color:
-                                                                    Color(0xffF1F1F1),
-                                                                child:
-                                                                    Text("#000-123"),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Order From",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Color(0xff6B829D),
-                                                            ),
-                                                          ),
-                                                          Text("Karachi broast")
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Delivery Address",
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Color(0xff6B829D),
-                                                            ),
-                                                          ),
-                                                          Flexible(
+                                                        ),
+                                                        Material(
+                                                          elevation: 5.0,
+                                                          shadowColor:
+                                                              Color(0xffB6B7B7),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(4.0),
+                                                            child: Container(
+                                                              color: Color(
+                                                                  0xffF1F1F1),
                                                               child: Text(
-                                                            "lorem ag g lipsim text testing long text for addresss os lorem lipsum gagtt",
-                                                          ))
-                                                        ],
-                                                      ),
+                                                                  "#000-123"),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "1x Specific Pizza",
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Order From",
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Text("Karachi broast")
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Delivery Address",
+                                                          style: TextStyle(
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Flexible(
+                                                            child: Text(
+                                                          "lorem ag g lipsim text testing long text for addresss os lorem lipsum gagtt",
+                                                        ))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "1x Specific Pizza",
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 619.44",
                                                             style: TextStyle(
                                                               fontSize: 16,
                                                               fontWeight:
-                                                                  FontWeight.w700,
+                                                                  FontWeight
+                                                                      .w700,
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 619.44",
-                                                              style: TextStyle(
-                                                                fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Subtotal",
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Subtotal",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 619.44",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
+                                                                  FontWeight
+                                                                      .w700,
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 619.44",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Delivery Fee",
+                                                  ),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Delivery Fee",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 95",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
-                                                              color:
-                                                                  Color(0xff6B829D),
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: Color(
+                                                                  0xff6B829D),
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 95",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                                color:
-                                                                    Color(0xff6B829D),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "PlatForm Fee",
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "PlatForm Fee",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 95",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
-                                                              color:
-                                                                  Color(0xff6B829D),
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: Color(
+                                                                  0xff6B829D),
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 95",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                                color:
-                                                                    Color(0xff6B829D),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Incl. Tax",
+                                                  ),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Incl. Tax",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 95",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
-                                                              color:
-                                                                  Color(0xff6B829D),
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: Color(
+                                                                  0xff6B829D),
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 95",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                                color:
-                                                                    Color(0xff6B829D),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Voucher : John Smith",
+                                                  ),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Voucher : John Smith",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: Color(
+                                                                0xff6B829D),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 95",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
-                                                              color:
-                                                                  Color(0xff6B829D),
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: Color(
+                                                                  0xff6B829D),
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 95",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                                color:
-                                                                    Color(0xff6B829D),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Divider(),
-                                                    Container(
-                                                      margin: EdgeInsets.symmetric(
-                                                          vertical: 4),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Total (incl. GST)",
+                                                  ),
+                                                  Divider(),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 4),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Total (incl. GST)",
+                                                          style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "Rs 193.44",
                                                             style: TextStyle(
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w700,
+                                                                  FontWeight
+                                                                      .w700,
                                                             ),
                                                           ),
-                                                          Container(
-                                                            child: Text(
-                                                              "Rs 193.44",
-                                                              style: TextStyle(
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight.w700,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    CustomButton(
-                                                      title:
-                                                          "Select items to reorder",
-                                                      color: const Color(0xFF064769),
-                                                      fontColor:
-                                                          const Color(0xFFFFFFFF),
-                                                      fontSize: 18,
-                                                      showIcon: false,
-                                                      fontWeight: FontWeight.w300,
-                                                      minSize: Size(72.w, 5.h),
-                                                      onPressed: () {},
-                                                    )
-                                                  ],
-                                                ),
+                                                  ),
+                                                  CustomButton(
+                                                    title:
+                                                        "Select items to reorder",
+                                                    color:
+                                                        const Color(0xFF064769),
+                                                    fontColor:
+                                                        const Color(0xFFFFFFFF),
+                                                    fontSize: 18,
+                                                    showIcon: false,
+                                                    fontWeight: FontWeight.w300,
+                                                    minSize: Size(72.w, 5.h),
+                                                    onPressed: () {},
+                                                  )
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
+                                      ),
                                     ],
                                   );
                                 },
