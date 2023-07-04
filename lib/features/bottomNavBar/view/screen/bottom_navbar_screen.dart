@@ -36,7 +36,6 @@ class BottomNavBarScreenUIState extends ConsumerState<BottomNavBarScreenUI>
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         resizeToAvoidBottomInset: false,
-        
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           color: AppColors.backgroundColor,
@@ -49,6 +48,7 @@ class BottomNavBarScreenUIState extends ConsumerState<BottomNavBarScreenUI>
                     ? 'home.svg'
                     : 'home.svg',
                 title: AppConstant.bottomBarHome,
+                selected: ref.watch(bottomBavBarProvider).currentTabIndex == 0,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(0),
               ),
               BottomNavBarTab(
@@ -56,18 +56,20 @@ class BottomNavBarScreenUIState extends ConsumerState<BottomNavBarScreenUI>
                     ? 'notification.svg'
                     : 'notification.svg',
                 title: AppConstant.bottomBarAlert,
+                selected: ref.watch(bottomBavBarProvider).currentTabIndex == 1,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(1),
               ),
-              
               BottomNavBarTab(
                 imgPath: 'order.svg',
                 title: AppConstant.bottomBarOrders,
+                selected: ref.watch(bottomBavBarProvider).currentTabIndex == 2,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(2),
               ),
               BottomNavBarTab(
                 imgPath: ref.watch(bottomBavBarProvider).currentTabIndex == 3
                     ? 'menu.svg'
                     : 'menu.svg',
+                selected: ref.watch(bottomBavBarProvider).currentTabIndex == 3,
                 title: AppConstant.bottomBarMore,
                 onTap: () => ref.read(bottomBavBarProvider).onTabSelect(3),
               ),

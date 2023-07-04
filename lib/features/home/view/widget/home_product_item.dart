@@ -14,8 +14,8 @@ class HomeProductItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 200,
-        width: 250,
+        height: 170,
+        width: 230,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -44,41 +44,39 @@ class HomeProductItem extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5)),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Balochi Tikka",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            color: Color(0xff041421),
-                          ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(5)),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Balochi Tikka",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Color(0xff041421),
                         ),
-                        Text(
-                          "35 min - Rs 150 delivery fee",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xff6B829D),
-                          ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "35 min - Rs 150 delivery fee",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xff6B829D),
                         ),
-                      ],
-                    ),
-                    const RatingStar(),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                  const RatingStar(),
+                ],
               ),
             ),
           ],

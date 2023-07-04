@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:locally_app/routes/app_navigation.dart';
@@ -17,7 +18,7 @@ class HomeSubCategoryProductItem extends StatelessWidget {
       onTap: () => AppNavigation.navigateTo(AppNavRoutes.shopScreen),
       child: Container(
         height: 280,
-        width: 94.w,
+        width: 92.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           boxShadow: [
@@ -55,13 +56,13 @@ class HomeSubCategoryProductItem extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(7),
                         decoration: BoxDecoration(
-                          color: const Color(0xffF1F1F1),
-                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xffFFFFFF),
+                          borderRadius: BorderRadius.circular(3),
                         ),
                         child: RichText(
                           text: const TextSpan(
                             style: TextStyle(
-                              fontSize: 14.0,
+                              fontSize: 12,
                             ),
                             children: <TextSpan>[
                               TextSpan(
@@ -87,16 +88,17 @@ class HomeSubCategoryProductItem extends StatelessWidget {
                       left: 0,
                       child: Container(
                         padding: const EdgeInsets.all(7),
-                        height: 50,
-                        width: 120,
+                        height: 40,
+                        width: 90,
                         decoration: BoxDecoration(
                           color: const Color(0xff064769).withOpacity(0.8),
                         ),
-                        child: const Text(
+                        child: const AutoSizeText(
                           "50% OFF Up to RS 300",
+                          minFontSize: 8,
+                          maxFontSize: 13,
                           style: TextStyle(
                             color: Color(0xffFFFFFF),
-                            fontSize: 15,
                           ),
                         ),
                       ),
@@ -106,16 +108,17 @@ class HomeSubCategoryProductItem extends StatelessWidget {
                       right: 0,
                       child: Container(
                         padding: const EdgeInsets.all(7),
-                        height: 35,
-                        width: 220,
+                        height: 30,
+                        width: 160,
                         decoration: BoxDecoration(
                           color: const Color(0xffA72622).withOpacity(0.95),
                         ),
-                        child: const Text(
+                        child: const AutoSizeText(
                           "Extra 25% OFF with Promo",
+                          minFontSize: 8,
+                          maxFontSize: 12,
                           style: TextStyle(
                             color: Color(0xffFFFFFF),
-                            fontSize: 15,
                           ),
                         ),
                       ),
@@ -153,12 +156,12 @@ class HomeSubCategoryProductItem extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: 2,
+                              height: 5,
                             ),
                             Text(
                               "All Grocery Products | 2.9 miles away ",
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 11,
                                 color: Color(0xff6B829D),
                               ),
                             ),

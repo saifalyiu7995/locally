@@ -118,10 +118,10 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => const Padding(
-                        padding: EdgeInsets.only(right: 10),
+                        padding: EdgeInsets.only(right: 15),
                         child: SliderItem(
                           image: "slider_big_image.png",
-                          width: 400,
+                          width: 360,
                         ),
                       ),
                     ),
@@ -137,7 +137,7 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                     child: const SearchTextField(),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   SizedBox(
                     height: 40,
@@ -190,6 +190,17 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                         padding: EdgeInsets.only(right: 10),
                         child: ShopPopularItem(),
                       ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    "Pizza",
+                    style: TextStyle(
+                      color: Color(0xff041421),
+                      fontSize: 19,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
@@ -866,22 +877,23 @@ class SelectNow extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        padding: EdgeInsets.all(8),
+        height: 33,
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
         decoration: BoxDecoration(
           color: Color(0xFFa72521),
           borderRadius: BorderRadius.circular(5),
         ),
         alignment: Alignment.center,
         child: SizedBox(
-          width: 90,
+          width: 80,
           child: Center(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
                 Icon(
                   Icons.access_time_filled_sharp,
                   color: Colors.white,
-                  size: 22,
+                  size: 13,
                 ),
                 Text(
                   "Now",
@@ -891,6 +903,7 @@ class SelectNow extends StatelessWidget {
                 Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: Colors.white,
+                  size: 19,
                 ),
               ],
             ),
@@ -914,8 +927,8 @@ class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 220,
+      height: 33,
+      width: 170,
       decoration: BoxDecoration(
         color: Color(0xFFf1f1f1),
         borderRadius: BorderRadius.circular(5),
@@ -934,7 +947,7 @@ class _ToggleButtonState extends State<ToggleButton> {
             left: 0,
             top: 0,
             bottom: 0,
-            width: 100,
+            width: 80,
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -942,21 +955,21 @@ class _ToggleButtonState extends State<ToggleButton> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
                   color: _isDelivery ? Color(0xFF064769) : Color(0xFFf1f1f1),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 alignment: Alignment.center,
                 child: SizedBox(
-                  width: 90,
+                  width: 50,
                   child: Center(
                     child: Text(
                       "Delivery in 25 min",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: _isDelivery ? Colors.white : Colors.black,
-                          fontSize: 11),
+                          fontSize: 9),
                     ),
                   ),
                 ),
@@ -967,7 +980,7 @@ class _ToggleButtonState extends State<ToggleButton> {
             right: 0,
             top: 0,
             bottom: 0,
-            width: 120,
+            width: 90,
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -975,7 +988,7 @@ class _ToggleButtonState extends State<ToggleButton> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
                   color: _isDelivery ? Color(0xFFf1f1f1) : Color(0xFF064769),
                   borderRadius: BorderRadius.circular(5),
@@ -983,14 +996,14 @@ class _ToggleButtonState extends State<ToggleButton> {
                 alignment: Alignment.center,
                 child: Center(
                   child: SizedBox(
-                    width: 100,
+                    width: 60,
                     child: Text(
                       "Click & Collect in 25 min",
                       textAlign: TextAlign.center,
                       maxLines: 2,
                       style: TextStyle(
                         color: _isDelivery ? Colors.black : Colors.white,
-                        fontSize: 11,
+                        fontSize: 9,
                       ),
                     ),
                   ),
