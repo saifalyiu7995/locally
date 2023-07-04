@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/utils/app_constant.dart';
 import 'package:locally_app/utils/search_delegate_product.dart';
-import 'package:locally_app/utils/search_delegate_shop.dart';
+import 'package:locally_app/widgets/button/custom_button.dart';
 
 import 'package:locally_app/widgets/rating/rating_with_star.dart';
 import 'package:locally_app/widgets/slider/slider_item.dart';
 import 'package:locally_app/widgets/textFormField/search_text_field.dart';
 import 'package:sizer/sizer.dart';
+
+
+
+class VariationOption {
+  final String title;
+  final String price;
+
+  VariationOption({required this.title, required this.price});
+}
 
 class ShopScreen extends ConsumerStatefulWidget {
   const ShopScreen({super.key});
@@ -17,6 +27,9 @@ class ShopScreen extends ConsumerStatefulWidget {
 }
 
 class ShopScreenState extends ConsumerState<ShopScreen> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,7 +186,7 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
                       itemCount: 7,
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => const Padding(
+                      itemBuilder: (context, index) =>  Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: ShopPopularItem(),
                       ),
@@ -203,6 +216,9 @@ class ShopScreenState extends ConsumerState<ShopScreen> {
 }
 
 class PopularItemHorizontal extends StatelessWidget {
+
+
+
   const PopularItemHorizontal({
     super.key,
   });
@@ -300,7 +316,15 @@ class PopularItemHorizontal extends StatelessWidget {
 class ShopPopularItem extends StatelessWidget {
   final double height;
   final double width;
-  const ShopPopularItem({
+
+  int _selectedOption = -1;
+
+  List<VariationOption> _options = [
+    VariationOption(title: 'Original GMC Burger', price: 'Rs 500'),
+    VariationOption(title: 'No Original GMC Burger', price: 'Rs 200'),
+  ];
+
+   ShopPopularItem({
     super.key,
     this.height = 120,
     this.width = 120,
@@ -308,51 +332,363 @@ class ShopPopularItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: height,
-          width: width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Image.network(
-                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
-                    fit: BoxFit.cover,
-                  ),
+        InkWell(
+          onTap: (){
+            showModalBottomSheet(
+              enableDrag: true,
+              backgroundColor: Colors.transparent,
+              context: context,
+              isScrollControlled: true,
+              builder: (BuildContext context) {
+                return DraggableScrollableSheet(
+                  initialChildSize: 0.9,
+                  minChildSize: 0.7,
+                  maxChildSize: 1,
+                  builder: (BuildContext context,
+                      ScrollController scrollController) {
+                    return ListView(
+                      controller: scrollController,
+                      children: [
+                        Container(
+                          // height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0),
+                            ),
+                            color: Colors.white,
+                          ),
+                          child: Column(
+                            crossAxisAlignment:
+                            CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const SizedBox.shrink(),
+                                    Container(
+                                      width: 30,
+                                      height: 30,
+                                      margin: EdgeInsets.only(right: 5),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black
+                                                .withOpacity(0.3),
+                                            offset: Offset(0, 1),
+                                            blurRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child:  InkWell(
+                                        onTap: (){
+                                          AppNavigation.goBack();
+                                        },
+                                        child: Icon(
+                                          Icons.close,
+                                          color: Color(0xffA72622),
+                                          size: 19,
+
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Container(
+                                height: 250,
+                                width:
+                                MediaQuery.of(context).size.width,
+                                color: Color(0xffFBFBFB),
+                                child: Image(
+                                  image: NetworkImage(
+                                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
+                                  ),
+                                  fit: BoxFit.fill,
+                                  height: 250,
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 10 , vertical: 20),
+                                child: Column(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Two Zinger Burger",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight:
+                                          FontWeight.w800),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Text(
+                                      "Spicy chicken burger with two colddrinks",
+                                      style: TextStyle(
+                                        color:
+                                        Color(0xff6B829D),
+                                      ),
+                                    ),
+                                Container(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only( top: 8.0),
+                                        child: Text(
+                                          'Variations',
+                                          style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      ListView.builder(
+                                        shrinkWrap: true,
+                                        physics: NeverScrollableScrollPhysics(),
+                                        itemCount: _options.length,
+                                        itemBuilder: (context, index) {
+                                          return Theme(
+                                            data: ThemeData(
+                                              unselectedWidgetColor: const Color(0xffA72622),
+                                            ),
+                                            // child: RadioListTile(
+                                            //   visualDensity: const VisualDensity(
+                                            //     horizontal: VisualDensity.minimumDensity,
+                                            //     vertical: VisualDensity.minimumDensity,
+                                            //   ),
+                                            //   title: Text(_options[index].title),
+                                            //   value: index,
+                                            //   groupValue: _selectedOption,
+                                            //
+                                            //   onChanged: (value) {
+                                            //     // setState(() {
+                                            //     //   _selectedOption = value as int;
+                                            //     // });
+                                            //   },
+                                            //   secondary: Text(_options[index].price),
+                                            // ),
+                                            child: Row(
+                                              children: [
+                                                Radio(value: _options[index].title, groupValue: _options, onChanged:(e){
+
+                                                }),
+                                                Text(_options[index].title),
+                                                Expanded(
+                                                  child: SizedBox(),
+                                                ),
+                                                Text(_options[index].price),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      ),
+
+                                    ],
+                                  ),
+                                    // Spacer(),
+                                ), //
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only( top: 8.0),
+                                      child: Text(
+                                        'Frequently bought together',
+                                        style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    ListView.builder(
+                                      shrinkWrap: true,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount: _options.length,
+                                      itemBuilder: (context, index) {
+                                        return Theme(
+                                          data: ThemeData(
+                                            unselectedWidgetColor: const Color(0xffA72622),
+                                          ),
+                                          child: Row(
+                                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Checkbox(value: false, onChanged: (bool? e){
+
+                                              }),
+                                              Text(_options[index].title),
+                                              Expanded(
+                                                child: SizedBox(),
+                                              ),
+                                              Text(_options[index].price),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+
+                                  ],
+                                ),
+                                    // Align(alignment: Alignment.bottomCenter, child: Text("thats ")),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 20 , horizontal: 10),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            const SizedBox.shrink(),
+                                            Container(
+                                              width: 30,
+                                              height: 30,
+                                              margin: EdgeInsets.only(right: 5),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                // border: ,
+                                                borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(0.3),
+                                                    offset: Offset(0, 1),
+                                                    blurRadius: 2,
+                                                  ),
+                                                ],
+                                              ),
+                                              child:  InkWell(
+                                                onTap: (){
+                                                  AppNavigation.goBack();
+                                                },
+                                                child: Icon(
+                                                  Icons.remove,
+                                                  color: Color(0xffA72622),
+                                                  size: 19,
+
+                                                ),
+                                              ),
+                                            ),
+                                            Text("2"),
+                                            Container(
+                                              width: 30,
+                                              height: 30,
+                                              margin: EdgeInsets.only(right: 5),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                // border: ,
+                                                borderRadius: BorderRadius.all(Radius.circular(2.0),),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(0.3),
+                                                    offset: Offset(0, 1),
+                                                    blurRadius: 2,
+                                                  ),
+                                                ],
+                                              ),
+                                              child:  InkWell(
+                                                onTap: (){
+                                                  AppNavigation.goBack();
+                                                },
+                                                child: Icon(
+                                                  Icons.add,
+                                                  color: Color(0xffA72622),
+                                                  size: 19,
+
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ),
+                                    ),
+                                    SizedBox(width: 20,),
+                                    CustomButton(
+                                      title: "Add To Cart",
+                                      color: const Color(0xffA72622),
+                                      fontColor: const Color(0xFFFFFFFF),
+                                      fontSize: 18,
+                                      showIcon: false,
+                                      fontWeight: FontWeight.w300,
+                                      minSize: Size(50.w, 6.h),
+                                      onPressed: () {
+                                        // AppNavigation.navigateTo(AppNavRoutes.numberRoute);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            );
+          },
+          child: Container(
+            height: height,
+            width: width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(0, 3),
                 ),
-              ),
-              Positioned(
-                right: 5,
-                top: 5,
-                child: Container(
-                  width: 30,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+              ],
+            ),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Color(0xffA72622),
+                    child: Image.network(
+                      'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Positioned(
+                  right: 5,
+                  top: 5,
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: Color(0xffA72622),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(

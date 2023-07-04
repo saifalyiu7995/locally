@@ -115,7 +115,7 @@ class SearchDelegateProduct extends SearchDelegate {
                       child: ListView.builder(
                         itemCount: 7,
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) => const Padding(
+                        itemBuilder: (context, index) =>  Padding(
                           padding: EdgeInsets.only(right: 10),
                           child: ShopPopularItem(
                             height: 100,

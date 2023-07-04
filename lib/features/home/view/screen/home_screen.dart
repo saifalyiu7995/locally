@@ -4,6 +4,7 @@ import 'package:locally_app/features/address/view/screen/address_screen.dart';
 import 'package:locally_app/features/home/view/widget/home_address_change.dart';
 import 'package:locally_app/features/home/view/widget/home_category_product_item.dart';
 import 'package:locally_app/features/home/view/widget/home_product_item.dart';
+import 'package:locally_app/features/home/view/widget/offers_product_item.dart';
 import 'package:locally_app/features/home/view/widget/view_all_with_heading.dart';
 import 'package:locally_app/routes/app_navigation.dart';
 import 'package:locally_app/routes/app_navigation_routes.dart';
@@ -205,6 +206,55 @@ class HomeScreenUI extends ConsumerWidget {
               ),
               SizedBox(
                 height: 2.h,
+              ),
+              Column(
+                children: [
+                  ViewAllWithHeading(
+                    onTap: () =>
+                        AppNavigation.navigateTo(AppNavRoutes.categoryScreen),
+                    titile: "Offers For You",
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  SizedBox(
+                    height: 210,
+                    width: double.infinity,
+                    child: ListView.builder(
+                      itemCount: 6,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(right: 10, bottom: 10),
+                        // child: HomeProductItem(
+                        //   onTap: () => showModalBottomSheet(
+                        //     context: context,
+                        //     isScrollControlled: true,
+                        //     enableDrag: true,
+                        //     backgroundColor: Colors.white,
+                        //     clipBehavior: Clip.antiAlias,
+                        //     shape: const RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.only(
+                        //         topLeft: Radius.circular(16),
+                        //         topRight: Radius.circular(16),
+                        //       ),
+                        //     ),
+                        //     builder: (BuildContext c) {
+                        //       return const ProductDetails();
+                        //     },
+                        //   ),
+                        // ),
+                        child: OfferProductItem(
+                          onTap: (){
+                            print("on tap");
+                          },
+                          title: "Knoor",
+                          hasSubtitle: true,
+                          subTitle: "Starting from 99 0nly",
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
